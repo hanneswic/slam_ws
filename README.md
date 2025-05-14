@@ -15,3 +15,10 @@ Successfully running the Livox MID360 on ROS 2 Humble using `livox_ros_driver2`.
 
 3. Update the config file in your driver with the host ip (ethernet port) and livox ip (from livox viewer or step 2)
      Remember to also change the config in the install path of the driver!
+
+4. Fix RViz “Fixed Frame [livox_frame] does not exist” error:
+      In a separate terminal:
+
+      ros2 run tf2_ros static_transform_publisher 0 0 0 0 0 0 base_link livox_frame
+
+      Then set "Fixed Frame" in RViz to livox_frame.
