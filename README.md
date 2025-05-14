@@ -6,6 +6,8 @@ Successfully running the Livox MID360 on ROS 2 Humble using `livox_ros_driver2`.
 
 ### Key Steps
 
+Livox Mid 360 does not start with just 9V, 12V is better (2A).
+
 1. Install Livox Driver and SDK
    Under: https://github.com/Livox-SDK/livox_ros_driver2
 
