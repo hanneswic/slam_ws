@@ -5,16 +5,11 @@ from launch_ros.actions import Node
 import os
 from ament_index_python.packages import get_package_share_directory
 
-
 def generate_launch_description():
     realsense_launch_dir = os.path.join(
         get_package_share_directory('realsense2_camera'), 'launch'
     )
-    usb_cam_launch_dir = os.path.join(
-        get_package_share_directory('usb_cam'), 'launch'
-    )
 
-    # Livox-Launchfile installiertem Quellpfad
     livox_launch_file = os.path.expanduser(
         '~/slam_ws/src/ws_livox/src/livox_ros_driver2/launch_ROS2/msg_MID360_launch.py'
     )
@@ -23,23 +18,27 @@ def generate_launch_description():
         '~/slam_ws/rviz_configs/multisensor_config_1.rviz'
     )
 
+    fisheye_launch_file = os.path.expanduser(
+        '~/slam_ws/src/moonbotslam/launch/fisheye_cameras_launch.py'
+    )
+
     return LaunchDescription([
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                os.path.join(realsense_launch_dir, 'rs_launch.py')
-            )
-        ),
-
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                os.path.join(usb_cam_launch_dir, 'camera.launch.py')
-            )
+           PythonLaunchDescriptionSource(
+               os.path.join(realsense_launch_dir, 'rs_launch.py')
+           )
         ),
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
                 livox_launch_file
             )
+        ),
+
+        # Hier das neue Fisheye-Launchfile includen, z.B. mit activate_rectification auf true
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(fisheye_launch_file),
+            launch_arguments={'activate_rectification': 'true'}.items()
         ),
 
         Node(

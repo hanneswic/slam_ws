@@ -27,8 +27,8 @@ class MJPEGDecoder(Node):
 def main(args=None):
     rclpy.init(args=args)
     # Standardwerte (für Kamera 1)
-    input_topic = '/camera1/image_raw'
-    output_topic = '/camera1/image_rgb'
+    input_topic = '/fisheye_left/image_raw'
+    output_topic = '/fisheye_left/image_rgb'
     # Wenn per Argument übergeben, diese nutzen
     if len(sys.argv) > 2:
         input_topic = sys.argv[1]

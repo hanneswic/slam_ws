@@ -1,0 +1,28 @@
+image_width: 640
+image_height: 480
+camera_name: fisheye_left
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [251.56582314848453, 0.0, 329.80719717330584,
+         0.0, 250.73439350934925, 226.6230414125617,
+         0.0, 0.0, 1.0]
+distortion_model: equidistant
+distortion_coefficients:
+  rows: 1
+  cols: 4
+  data: [-0.03790576166046602, -0.01450287539528636,
+         0.012107727290821001, -0.0045662245140595725]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1.0, 0.0, 0.0,
+         0.0, 1.0, 0.0,
+         0.0, 0.0, 1.0]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [251.56582314848453, 0.0, 329.80719717330584, 0.0,
+         0.0, 250.73439350934925, 226.6230414125617, 0.0,
+         0.0, 0.0, 1.0, 0.0]
+reprojection_error: 0.051
